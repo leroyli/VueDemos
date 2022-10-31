@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 插值表达式只能用在元素的内容节点中，不能用到属性节点中 -->
+    <!-- vue规定 v-bind：可以简写成： -->
+    <div id="app">
+        <input type="text" v-bind:placeholder="tips">
+
+
+        <hr>
+
+        <div>1+2的结果是： {{ 1 + 2 }}</div>
+        <div>{{ tips }}的反转是： {{ tips.split('').reverse().join('') }}</div>
+
+        <div :title="'box' + index">这是一个div</div>
+    </div>
+
+
+    <script src="./lib/vue.js"></script>
+    <script>
+       const vm = new Vue({
+           //el为固定写法，指明控制哪个区域
+           el: '#app',
+           data: {
+               tips: '请输入用户名',
+               index: 3
+           }
+       })
+    </script>
+</body>
+</html>

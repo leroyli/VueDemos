@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <p>count的值是 {{ count }}</p>
+        <!-- v-on指令可以简写成@ -->
+        <button v-on:click="add(2)">+1</button>
+        <button @click="sub">-1</button>
+    </div>
+
+
+    <script src="./lib/vue.js"></script>
+    <script>
+       const vm = new Vue({
+           //el为固定写法，指明控制哪个区域
+           el: '#app',
+           data: {
+               count: 0,
+           },
+           methods: {
+               add (n) {
+                //    vm.count += 1;
+                this.count += n;
+                 },
+                 sub() {
+                    //  vm.count -= 1;
+                    this.count -= 1;
+                 }
+           }
+       })
+    </script>
+</body>
+</html>
